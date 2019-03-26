@@ -5,7 +5,7 @@ class ServiceProducts {
         this.productsCatalog = productsCatalog;
         this.create();
     }
-    create() {
+    create(){
         var wrapper = document.createElement('slot');
 
         var products = serviceStore.getProducts();
@@ -22,11 +22,11 @@ class ServiceProducts {
                 var activeText = 'Удалить услугу';
             }
 
-            var item = this.getElement({tagName: 'div',className: 'item'});
-            var name = this.getElement({tagName: 'div',className: 'name', innerText:this.productsCatalog[i].name});
-            var img = this.getElement({tagName: 'div',className: 'img', backgroundImage: `url(${this.productsCatalog[i].img})`});
-            var price = this.getElement({tagName: 'div',className: 'price', innerText:this.productsCatalog[i].price.toLocaleString()});
-            var btn = this.getElement({tagName: 'button',className: 'btn'+activeClass, innerText:activeText, id:this.productsCatalog[i].id });
+            var item  = serviceCreateElement.getElement({ tagName:'div',    className:'item'});
+            var name  = serviceCreateElement.getElement({ tagName:'div',    className:'name',  innerText:this.productsCatalog[i].name});
+            var imgc  = serviceCreateElement.getElement({ tagName:'div',    className:'imgc',   backgroundImage:`url(${this.productsCatalog[i].imgc})`});
+            var price = serviceCreateElement.getElement({ tagName:'div',    className:'price', innerText:this.productsCatalog[i].price.toLocaleString()});
+            var btn   = serviceCreateElement.getElement({ tagName:'button', className:'btn'+activeClass, innerText:activeText, id:this.productsCatalog[i].id });
 
             btn.addEventListener('click', function() {
                 var id = this.getAttribute('data-id');
@@ -44,7 +44,7 @@ class ServiceProducts {
             });
 
             item.appendChild(name);
-            item.appendChild(img);
+            item.appendChild(imgc);
             item.appendChild(price);
             item.appendChild(btn);
 
@@ -53,25 +53,12 @@ class ServiceProducts {
 
         this.container.appendChild(wrapper);
     }
-    getElement(options) {
-        var element = document.createElement(options.tagName);
-        if('className' in options) {
-            element.setAttribute('class', options.className);
-        }
-        if('innerText' in options) {
-            element.innerText = options.innerText;
-        }
-        if('backgroundImage' in options) {
-            element.style.backgroundImage = options.backgroundImage;
-        }
-        if('id' in options) {
-            element.setAttribute('class', options.className);
-        }
-        
-        return element;
-    }
+
     actions() {
 
     }
 }
 var serviceProducts = new ServiceProducts('.container-products', '.container-counter', productsCatalog);
+
+serviceProducts.getElement();
+

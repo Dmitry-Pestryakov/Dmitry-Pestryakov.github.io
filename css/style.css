@@ -14,6 +14,7 @@ body {
 .hed {
 	display: flex;
 	justify-content: space-between;
+	align-items: flex-start;
 }
 .container-products {
 	display: flex;
@@ -23,21 +24,53 @@ body {
 }
 .container-counter {
 	flex-shrink: 0;
-	width: 40px;
-	height: 40px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-image: url();
+	position: fixed;
+	width: 50px;
+	height: 50px;
+	top: 20px;
+	right: 20px;
+	background-image: url(../img/garbage.svg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;
-	font-weight: bold;
 	cursor: pointer;
-	margin: 20px;
+	font-weight: bold;
+}
+.container-cart {
+	display: none;
+	align-items: flex-start;
 	position: fixed;
-	justify-content: left;
-	border: 1px solid;
+	width: 97%;
+	height: 97vh;
+	background: #fff;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	margin: auto;
+
+}
+.cart-close {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	top: 20px;
+	right: 20px;
+	background-image: url(../img/cancel.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	cursor: pointer;
+}
+.name {
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 10px 0;
+}
+.price {
+	padding: 15px 0;
 }
 .item {
 	width: 250px;
@@ -66,6 +99,7 @@ body {
 h1 {
 	text-align: center;
 	font-size: 50px;
+	padding-left: 230px;
 }
 h2 {
 	text-align: center;
@@ -141,7 +175,14 @@ h3 {
 	z-index: 1;
 
 }
+.imgc {
+	width: 200px;
+	height: 250px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
 
+}
 .img {
 	box-shadow: inset 1px 2px 10px 8px grey;
 	background-repeat: no-repeat;
