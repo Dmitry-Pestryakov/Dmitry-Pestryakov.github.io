@@ -1,9 +1,9 @@
 class ServiceStore {
     constructor() {}
-    getProducts(){
+    getProducts() {
         var products = [];
         var productsLocalStorage = localStorage.getItem('products');
-        if(productsLocalStorage !== null) {
+        if (productsLocalStorage !== null) {
             products = JSON.parse(productsLocalStorage);
         }
         return products;
@@ -18,15 +18,11 @@ class ServiceStore {
             products.splice(index, 1);
             var pushProduct = false;
         }
-        products.push(id);
-        localStorage.setItem('products', JSON.stringify(products));
-
+        localStorage.setItem('products', JSON.stringify(products));  
         return {
             pushProduct: pushProduct,
             products: products
-        }
-
+        };
     }
 }
-
 var serviceStore = new ServiceStore();

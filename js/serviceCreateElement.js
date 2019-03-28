@@ -13,11 +13,8 @@ class ServiceCreateElement {
         if ('id' in options) {
             element.setAttribute('data-id', options.id);
         }
-        
         return element;
     }
 }
 
 var serviceCreateElement = new ServiceCreateElement();
-
-serviceCreateElement.getElement();
